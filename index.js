@@ -14,8 +14,11 @@ async function makeWeatherRequest (city) {
 async function timeZoneRequest (city) {
     
     let timeZone = await fetch( `https://api.weatherapi.com/v1/timezone.json?key=4bf20ce3218b4f4c9aa144244240703&q=${city}` , {mode : 'cors'});
-
     let timeZoneObj = await timeZone.json();
+
+    let region = `${timeZoneObj.location.name}, ${timeZoneObj.location.country} `
+    console.log(region);
+
     let date = getFormattedDate((timeZoneObj.location.localtime).split(' ')[0]);
     let time = (timeZoneObj.location.localtime).split(' ')[1];
     console.log(date + ' | ' + time);
@@ -50,12 +53,32 @@ function getFormattedDate (str) {
 
 }
 
+async function currentWeatherRequest (city){
+
+    let currentWeather = await fetch( `https://api.weatherapi.com/v1/current.json?key=4bf20ce3218b4f4c9aa144244240703&q=${city}` , {mode : 'cors'});
+
+    let currentWeatherObj = await currentWeather.json();
+    let currentData = [
+        {
+            Temp : currentWeatherObj.current.temp_c , 
+            Wind : currentWeatherObj.current.wind_mph , 
+            Humidity : currentWeatherObj.current.humidity , 
+            Cloud : currentWeatherObj.current.cloud , 
+            Visibility : currentWeatherObj.current.vis_km , 
+            Precipitation : currentWeatherObj.current.precip_mm
+        }
+    ]
+    console.table(currentData);
+    console.log('__________________________')
+
+}
+
 function start (){
     
     let city = cityInput.value;
     makeWeatherRequest(city);
     timeZoneRequest(city)
-
+    currentWeatherRequest(city);
 }
 
 
