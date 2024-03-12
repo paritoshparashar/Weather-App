@@ -1,3 +1,5 @@
+import "./main.css";
+
 let cityInput = document.getElementById("city");
 
 async function makeWeatherRequest (city) {
