@@ -10,6 +10,10 @@ button {
     border-radius: 1em;
 }
 
+.searchInfo > #location {
+
+}
+
 div {
     width: 100px;
     height:100px;

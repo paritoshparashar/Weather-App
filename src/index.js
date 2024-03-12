@@ -19,12 +19,12 @@ async function timeZoneRequest (city) {
     let timeZoneObj = await timeZone.json();
 
     let region = `${timeZoneObj.location.name}, ${timeZoneObj.location.country} `
-    console.log(region);
+    document.getElementById("location").innerHTML = region;
 
     let date = getFormattedDate((timeZoneObj.location.localtime).split(' ')[0]);
     let time = (timeZoneObj.location.localtime).split(' ')[1];
-    console.log(date + ' | ' + time);
-    console.log('__________________________')
+    document.getElementById("time").innerHTML = (date + ' | ' + time);
+    
 }
 
 function getFormattedDate (str) {
