@@ -75,7 +75,7 @@ async function currentWeatherRequest (city){
 
 }
 
-function start (){
+document.getElementById('searchBtn').onclick = function start (){
     
     let city = cityInput.value;
     makeWeatherRequest(city);

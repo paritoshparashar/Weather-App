@@ -9,16 +9,21 @@
 <body>
 
     <header>
-        <input type="text" name="city" id="city">
-        <button id="search" onclick="start()">Search</button>
+        <div class="logo">Weather App</div>
+        <div class="search">
+            <input type="text" name="city" id="city">
+            <button id="searchBtn">Search</button>
+        </div>
+        <div class="units">
+            <button>Celcius</button>
+            <button>Fahrenheit</button>
+        </div>
     </header>
 
     <div class="content">
         <div class="place"></div>
 
-        <div class="forecast">
-
-        </div>
+        <div class="forecast"></div>
 
         <div class="weekly-forecast"></div>
     </div>

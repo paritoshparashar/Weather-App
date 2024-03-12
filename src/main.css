@@ -2,6 +2,10 @@ body {
     background: rgb(47, 134, 163);
 }
 
+header {
+    display: flex;
+}
+
 button {
     border-radius: 1em;
 }
