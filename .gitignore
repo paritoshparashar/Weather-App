@@ -1,1 +1,10 @@
 node_modules
+src
+gitignore
+dist
+package-lock.json
+package.json
+webpack.common.json
+webpack.dev.js
+webpack.prod.js
+.gitignore
