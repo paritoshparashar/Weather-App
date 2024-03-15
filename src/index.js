@@ -19,11 +19,10 @@ async function timeZoneRequest (city) {
     let timeZoneObj = await timeZone.json();
 
     let region = `${timeZoneObj.location.name}, ${timeZoneObj.location.country} `
-    document.getElementById("location").innerHTML = region;
 
     let date = getFormattedDate((timeZoneObj.location.localtime).split(' ')[0]);
     let time = (timeZoneObj.location.localtime).split(' ')[1];
-    document.getElementById("time").innerHTML = (date + ' | ' + time);
+    return [region , (date + ' | ' + time)];
     
 }
 
@@ -76,11 +75,21 @@ async function currentWeatherRequest (city){
 }
 
 document.getElementById('searchBtn').onclick = function start (){
+
+    display();
     
-    let city = cityInput.value;
-    makeWeatherRequest(city);
-    timeZoneRequest(city)
-    currentWeatherRequest(city);
 }
 
 
+function display () {
+
+    let city = cityInput.value;
+
+    makeWeatherRequest(city);
+    let zone = timeZoneRequest(city);
+
+    document.getElementById("location").innerHTML = zone[0];
+
+    document.getElementById("time").innerHTML = zone[1];
+    currentWeatherRequest(city);
+}

@@ -3,11 +3,16 @@
 body {
     background: rgb(47, 134, 163);
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
 }
 
 header {
     display: flex;
     justify-content: space-between;
+    width: 70vw;
 }
 
 button {
@@ -15,15 +20,26 @@ button {
 }
 
 .content {
-    width: 100vw;
+    width: 50vw;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
-
+    
 }
-.searchInfo > #location {
 
+.content > .forecast {
+    display: grid;
+    grid-template-columns: 2fr 5fr;
+    gap: 20px;
+}
+
+.forecast > .currentConditions {
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 5px;
 }
 
 div {
